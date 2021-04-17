@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="OOP - luxe hotel/src"/>
+	<classpathentry kind="lib" path="OOP - luxe hotel/WebContent/WEB-INF/lib/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="output" path="OOP - luxe hotel/build/classes"/>
+</classpath>
