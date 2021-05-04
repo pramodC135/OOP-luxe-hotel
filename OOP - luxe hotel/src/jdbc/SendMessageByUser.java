@@ -50,3 +50,28 @@ public class SendMessageByUser extends HttpServlet {
                 DB_Connection obj_DB_Connection = new DB_Connection();
                 Connection connection = obj_DB_Connection.get_connection();
                 PreparedStatement ps = null;
+                
+                String sql = "insert into messages (message, senderName, senderEmail) values(?,?,?)";
+                Class.forName("com.mysql.jdbc.Driver");
+                
+                ps = connection.prepareStatement(sql);
+                ps.setString(1, Message_val);
+                ps.setString(2, current_user_val);
+                ps.setString(3, Email_val);
+
+                
+                ps.executeUpdate();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Message has benn Send ! ');");
+                out.println("location='user/contact.jsp';");
+                out.println("</script>");
+
+
+        } catch (SQLException ex) {
+            out.println(ex);
+        } catch (ClassNotFoundException ex) {
+            out.println(ex);
+        }
+	}
+
+}
