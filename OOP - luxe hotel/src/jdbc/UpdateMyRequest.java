@@ -50,3 +50,34 @@ public class UpdateMyRequest extends HttpServlet {
         	String Kids_update_input_val = request.getParameter("Kids_update_input");
         	String CheckIn_update_input_val = request.getParameter("CheckIn_update_input");
         	String CheckOut_update_input_val = request.getParameter("CheckOut_update_input");
+        	
+            DB_Connection obj_DB_Connection = new DB_Connection();
+            Connection connection = obj_DB_Connection.get_connection();
+            PreparedStatement ps = null;
+            
+            String sql = "UPDATE rooms SET Adults = ?,Kids = ?,	CheckIn = ?,CheckOut = ? WHERE id = ? ";
+            Class.forName("com.mysql.jdbc.Driver");
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, Adults_update_input_val);
+            ps.setString(2, Kids_update_input_val);
+            ps.setString(3, CheckIn_update_input_val);
+            ps.setString(4, CheckOut_update_input_val);
+            ps.setString(5, req_id_val);
+
+            
+            ps.executeUpdate();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Your Changes has been Saved !');");
+            out.println("location='user/myrequests.jsp';");
+            out.println("</script>");
+
+
+    } catch (SQLException ex) {
+        out.println(ex);
+    } catch (ClassNotFoundException ex) {
+        out.println(ex);
+    }
+}
+
+}
