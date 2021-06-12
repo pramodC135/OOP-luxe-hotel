@@ -51,8 +51,7 @@ public class ConfirmRoomByOwner extends HttpServlet {
                 Connection connection = obj_DB_Connection.get_connection();
                 PreparedStatement ps = null;
                 
-                String sql = "UPDATE rooms SET Status = ?, RoomNo= ? WHERE id = ? ";
-                Class.forName("com.mysql.jdbc.Driver");
+                
                 
                 ps = connection.prepareStatement(sql);
                 ps.setString(1, "1");
