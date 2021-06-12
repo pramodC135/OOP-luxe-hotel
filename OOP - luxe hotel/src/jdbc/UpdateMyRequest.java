@@ -18,9 +18,7 @@ import common.DB_Connection;
 /**
  * Servlet implementation class UpdateMyRequest
  */
-@WebServlet("/UpdateMyRequest")
-public class UpdateMyRequest extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
        
     /**
      * @see HttpServlet#HttpServlet()
