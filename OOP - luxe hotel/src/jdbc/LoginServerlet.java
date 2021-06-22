@@ -59,7 +59,9 @@ public class LoginServerlet extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs = null;
 
-            
+            String sql = "select username,password,type from users where username=? and password=?";
+            Class.forName("com.mysql.jdbc.Driver");
+            ps = connection.prepareStatement(sql);
             
             ps.setString(1, username);
             ps.setString(2, password);
