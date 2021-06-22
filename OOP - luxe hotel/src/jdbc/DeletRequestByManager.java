@@ -57,7 +57,11 @@ public class DeletRequestByManager extends HttpServlet {
                 ps.setString(1, req_id_val);
 
                 
-               
+                ps.executeUpdate();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Delete Success !');");
+                out.println("location='manager/allrequests.jsp';");
+                out.println("</script>");
 
 
         } catch (SQLException ex) {
